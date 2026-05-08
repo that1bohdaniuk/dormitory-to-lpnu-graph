@@ -1,51 +1,42 @@
-# Dormitory #14 to Lviv Polytechnic National University (Building 4) shortest route.
+# Shortest Route: Dormitory 14 to Lviv Polytechnic
 
-Personal project that visualizes the shortest route from Dormitory #14 to Lviv Polytechnic National University (Building 4).
+A personal project visualizing the optimal pedestrian route from Dormitory #14 to Lviv Polytechnic National University (Building 4) using spatial network analysis.
 
-## What it does
-- Builds the transport / landmark graph from the hard-coded edges in `main.py`
-- Finds the weighted shortest path with `networkx`
-- Renders a polished PNG visualization to `graph_visualization.png`
-- Uses color, labels, and a legend to make the graph easy to read
+## Features
+* Builds a transport and landmark graph using defined edges in `main.py`.
+* Calculates the weighted shortest path using `networkx`.
+* Renders a polished, color-coded PNG (`graph_visualization.png`) complete with labels and a legend for readability.
 
-## Theory used
-- Basic graph theory for simple weighted graphs
-- Djikstra's algorithm (modified for weighted graphs) to find the shortest path. 
-I used this algorithm because of it's simplicity and efficiency for this type of problem.
-As long as weights are positive, Djikstra's algorithm is guaranteed to find the shortest path.
-- Used Tobler's function to calculate the average velocity of the person walking based on slope of the path.
-Tobler's velocity formula (in meters per second):
-\begin{equation}
-    V = 6 \cdot e^{-3.5 \cdot |S + 0.05|}
-\end{equation}
-Where:
-\( V \) is the walking velocity in meters per second.
-\( S \) is the slope of the path, calculated as the change in elevation divided by the horizontal distance.
-\( -0.05 \) offset represents a slight downward slope of approximately 5% where hikers achieve their maximum speed.
-- Actual formula for weights i've used:
-\begin{equation}
-w = \frac{d}{\frac{6 \cdot e^{(-3.5 \cdot |s + 0.05|)}}{3.6}} + \sum_{i=1}^{n}c_i
-\end{equation}
-Where \( d \) is the distance between the two points, \( s \) is the slope of the path, and \( c_i \) are the additional costs for the path (e.g., traffic, safety, etc.). 
-The division by 3.6 converts the velocity from meters per second to kilometers per hour.
+## Theoretical Background
 
-## Run it
+### Shortest Path Algorithm
+This project uses **Dijkstra's Algorithm** to evaluate the graph. Because all physical edge weights (representing time) are strictly positive, Dijkstra's is mathematically guaranteed to find the optimal shortest path efficiently.
 
-```bash
-python3 main.py
-```
+### Edge Weight Calculation (Time Cost)
+Edge weights represent the total traversal time in seconds. The formula combines physical movement time—derived from **Tobler's Hiking Function**—with discrete obstacle penalties.
 
-## Dependencies
+**Tobler's Velocity Formula:**
+Tobler's function calculates the walking speed based on the path's slope:
 
-Install packages with:
+$$V = 6 \cdot e^{-3.5 \cdot |s + 0.05|}$$
+
+*   **$V$**: Walking velocity in **km/h**.
+*   **$s$**: Slope of the path (change in elevation divided by horizontal distance).
+*   **$-0.05$**: An offset accounting for the biomechanical reality that hikers achieve maximum speed at a slight downward grade of approximately 5%.
+
+**Total Edge Weight Formula:**
+To calculate the total time weight in seconds, we apply the velocity to the distance and add penalties:
+
+$$w = \frac{d}{\frac{6 \cdot e^{(-3.5 \cdot |s + 0.05|)}}{3.6}} + \sum_{i=1}^{n}c_i$$
+
+*   **$w$**: Total edge weight (time in seconds).
+*   **$d$**: Distance between the two points in meters.
+*   **$c_i$**: Additional fixed time costs in seconds (e.g., waiting at traffic lights, crossing safety delays).
+*   *Note:* The Tobler formula yields km/h. Dividing the denominator by **3.6** converts this velocity to **m/s**. Dividing the distance ($d$) by this m/s velocity gives the base time in seconds.
+
+## Installation
+
+Ensure you have Python installed, then install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Output
-
-After running the script, check the generated image:
-
-- `graph_visualization.png`
-
