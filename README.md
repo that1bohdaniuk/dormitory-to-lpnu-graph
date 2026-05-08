@@ -25,7 +25,7 @@ $$V = 6 \cdot e^{-3.5 \cdot |s + 0.05|}$$
 
 *   **$V$**: Walking velocity in **km/h**.
 *   **$s$**: Slope of the path (change in elevation divided by horizontal distance).
-*   **$-0.05$**: An offset accounting for the biomechanical reality that hikers achieve maximum speed at a slight downward grade of approximately 5%.
+*   **$0.05$**: An offset accounting for the biomechanical reality that hikers achieve maximum speed at a slight downward grade of approximately 5%.
 
 **Total Edge Weight Formula:**
 To calculate the total time weight in seconds, we apply the velocity to the distance and add penalties:
