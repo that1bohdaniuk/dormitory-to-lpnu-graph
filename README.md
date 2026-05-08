@@ -1,11 +1,14 @@
+[English](#english) | [Українська](#українська)
+
+<a id="english"></a>
 # Shortest Route: Dormitory 14 to Lviv Polytechnic
 
 A personal project visualizing the optimal pedestrian route from Dormitory #14 to Lviv Polytechnic National University (Building 4) using spatial network analysis.
 
 ## Features
-* Builds a transport and landmark graph using defined edges in `main.py`.
-* Calculates the weighted shortest path using `networkx`.
-* Renders a polished, color-coded PNG (`graph_visualization.png`) complete with labels and a legend for readability.
+* **Graph Construction:** Builds a transport and landmark graph using defined edges in `main.py`.
+* **Routing:** Calculates the weighted shortest path using `networkx`.
+* **Visualization:** Renders a polished, color-coded PNG (`graph_visualization.png`) complete with labels and a legend for readability.
 
 ## Theoretical Background
 
