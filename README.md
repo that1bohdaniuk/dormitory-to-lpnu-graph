@@ -17,6 +17,7 @@ This project uses **Dijkstra's Algorithm** to evaluate the graph. Because all ph
 
 ### Edge Weight Calculation (Time Cost)
 Edge weights represent the total traversal time in seconds. The formula combines physical movement time—derived from **Tobler's Hiking Function**—with discrete obstacle penalties.
+Obstacle penalties are based on my own experience with traffic, infrastructure taken into account. :)
 
 **Tobler's Velocity Formula:**
 Tobler's function calculates the walking speed based on the path's slope:
