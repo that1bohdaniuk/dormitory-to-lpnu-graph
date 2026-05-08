@@ -6,9 +6,9 @@
 A personal project visualizing the optimal pedestrian route from Dormitory #14 to Lviv Polytechnic National University (Building 4) using spatial network analysis.
 
 ## Features
-* **Graph Construction:** Builds a transport and landmark graph using defined edges in `main.py`.
-* **Routing:** Calculates the weighted shortest path using `networkx`.
-* **Visualization:** Renders a polished, color-coded PNG (`graph_visualization.png`) complete with labels and a legend for readability.
+* Builds a transport and landmark graph using defined edges in `main.py`.
+* Calculates the weighted shortest path using `networkx`.
+* Renders a color-coded PNG (`graph_visualization.png`) complete with labels and a legend for readability.
 
 ## Theoretical Background
 
@@ -66,13 +66,13 @@ After a successful run, the script generates the following visualization file in
 <a id="українська"></a>
 # Найкоротший маршрут: Гуртожиток №14 – Львівська політехніка
 
-Особистий проєкт для візуалізації оптимального пішохідного маршруту від гуртожитку №14 до Національного університету "Львівська політехніка" (IV навчальний корпус) за допомогою просторового мережевого аналізу.
+Особистий проєкт для візуалізації оптимального маршруту від гуртожитку №14 до Національного університету "Львівська політехніка" (IV навчальний корпус) за допомогою просторового мережевого аналізу.
 
 ## Функціонал
 
-* **Побудова графа:** Створює транспортний граф та граф орієнтирів, використовуючи задані ребра у `main.py`.
-* **Маршрутизація:** Обчислює найкоротший зважений шлях за допомогою `networkx`.
-* **Візуалізація:** Генерує якісне кольорове PNG-зображення (`graph_visualization.png`) з мітками та легендою для зручності читання.
+* Створює транспортний граф та граф орієнтирів, використовуючи задані ребра у `main.py`.
+* Обчислює найкоротший зважений шлях за допомогою `networkx`.
+* Генерує PNG-зображення (`graph_visualization.png`) з мітками та легендою для зручності читання.
 
 ## Теоретичне підґрунтя
 
@@ -83,6 +83,7 @@ After a successful run, the script generates the following visualization file in
 ### Розрахунок ваги ребра (Витрати часу)
 
 Ваги ребер представляють загальний час проходження в секундах. Формула поєднує час фізичного руху — розрахований за допомогою **функції ходьби Тоблера** — з дискретними штрафами за перешкоди.
+Дискретні штрафи були створені на основі мого особистого досвіду з урахуванням особливості інфраструктури, трафіку тощо.
 
 **Формула швидкості Тоблера:**
 Функція Тоблера розраховує швидкість ходьби на основі нахилу шляху:
@@ -127,6 +128,5 @@ python3 main.py
 
 * `graph_visualization.png`
 
-```
-
-```
+---
+![Graph visualization:](graph_visualization.png)
